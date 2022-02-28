@@ -1,0 +1,57 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+	background-size: 20px 20px;
+   font-size: 20px;
+	background-position: center center;
+   font-family: sans-serif;
+}
+
+$border: 1px solid black;
+$padding: 5px;
+
+.tape {
+   padding: $padding;
+   max-width: 500px;
+   min-width: 400px;
+
+   .tape__window {
+      padding-left: 50px;
+      margin-bottom: 10px;
+
+      .tape__message {
+         display: grid;
+         border: $border;
+         background-color: white;
+         border-radius: 5px;
+         padding: $padding;
+         grid-template-columns: 2fr 1fr;
+
+         .message__text {
+            overflow-wrap: anywhere;
+            display: inline-block;
+            padding-top: 5px;
+         }
+
+         .message__date {
+            text-align: end;
+            font-size: medium;
+         }
+      }
+   }
+
+   .tape__input {
+      border: none;
+      resize: none;
+      box-sizing: border-box;
+      border: $border;
+      width: 100%;
+   }
+}
+
+
+

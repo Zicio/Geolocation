@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: linear-gradient(#bbb, transparent 1px), linear-gradient(90deg, #bbb, transparent 1px);
+  background-size: 20px 20px;
+  font-size: 20px;
+  background-position: center center;
+  font-family: sans-serif;
+}
+
+.tape {
+  padding: 5px;
+  max-width: 500px;
+  min-width: 400px;
+}
+
+.tape .tape__window {
+  padding-left: 50px;
+  margin-bottom: 10px;
+}
+
+.tape .tape__window .tape__message {
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+}
+
+.tape .tape__window .tape__message .message__text {
+  overflow-wrap: anywhere;
+  display: inline-block;
+  padding-top: 5px;
+}
+
+.tape .tape__window .tape__message .message__date {
+  text-align: end;
+  font-size: medium;
+}
+
+.tape .tape__input {
+  border: none;
+  resize: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
