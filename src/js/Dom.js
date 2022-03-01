@@ -8,15 +8,15 @@ export default class Dom {
     const window = document.querySelector('.tape__window');
     const message = document.createElement('div');
     message.classList.add('tape__message');
-    window.appendChild(message);
+    window.prepend(message);
     const messageText = document.createElement('span');
     messageText.classList.add('message__text');
     messageText.textContent = messageValue;
     const messageDate = document.createElement('span');
     messageDate.classList.add('message__date');
     messageDate.textContent = `${Dom.getDate().day}.${Dom.getDate().month}.${Dom.getDate().year} ${Dom.getDate().hour}:${Dom.getDate().minute}`;
-    message.appendChild(messageText);
-    message.appendChild(messageDate);
+    message.append(messageText);
+    message.append(messageDate);
     e.target.value = '';
   }
 

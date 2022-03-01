@@ -31,6 +31,7 @@ html {
   padding: 5px;
   -ms-grid-columns: 2fr 1fr;
       grid-template-columns: 2fr 1fr;
+  margin-top: 10px;
 }
 
 .tape .tape__window .tape__message .message__text {

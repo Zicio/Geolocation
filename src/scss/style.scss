@@ -30,6 +30,7 @@ $padding: 5px;
          border-radius: 5px;
          padding: $padding;
          grid-template-columns: 2fr 1fr;
+         margin-top: 10px;
 
          .message__text {
             overflow-wrap: anywhere;
