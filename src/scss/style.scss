@@ -40,12 +40,16 @@ $padding: 5px;
 
          .message__date {
             text-align: end;
-            font-size: medium;
+            font-size: small;
+         }
+
+         .message__coords {
+            font-size: small;
          }
       }
    }
 
-   .tape__input {
+   .form__input {
       border: none;
       resize: none;
       box-sizing: border-box;

@@ -12,10 +12,29 @@ export default class App {
   }
 
   static keyHandler(e) {
-    if (e.code === 'Enter') {
+    if (e.code === 'Enter' && e.target.classList.contains('form__input')) {
       e.preventDefault();
-      Dom.showMessage(e);
+      App.geolocation();
     }
+  }
+
+  static geolocation() {
+    const options = { enableHighAccuracy: true };
+    let coords;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(App.getCoords, App.getError, options);
+    }
+    return coords;
+  }
+
+  static getCoords(position) {
+    const { latitude } = position.coords;
+    const { longitude } = position.coords;
+    Dom.showMessage(latitude, longitude);
+  }
+
+  static getError() {
+    Dom.showMessage();
   }
 }
 

@@ -42,10 +42,14 @@ html {
 
 .tape .tape__window .tape__message .message__date {
   text-align: end;
-  font-size: medium;
+  font-size: small;
 }
 
-.tape .tape__input {
+.tape .tape__window .tape__message .message__coords {
+  font-size: small;
+}
+
+.tape .form__input {
   border: none;
   resize: none;
   -webkit-box-sizing: border-box;
