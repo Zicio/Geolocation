@@ -11,8 +11,38 @@ html {
   font-family: sans-serif;
 }
 
+.popup, .tape .tape__window .tape__message {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.popup .form__input, .tape .form__input {
+  border: none;
+  resize: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.popup {
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 10px;
+  font-size: large;
+  background-color: white;
+}
+
+.popup p {
+  margin-bottom: 20px;
+}
+
 .tape {
-  padding: 5px;
+  padding: 10px;
   max-width: 500px;
   min-width: 400px;
 }
@@ -25,10 +55,8 @@ html {
 .tape .tape__window .tape__message {
   display: -ms-grid;
   display: grid;
-  border: 1px solid black;
   background-color: white;
-  border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   -ms-grid-columns: 2fr 1fr;
       grid-template-columns: 2fr 1fr;
   margin-top: 10px;
@@ -37,7 +65,7 @@ html {
 .tape .tape__window .tape__message .message__text {
   overflow-wrap: anywhere;
   display: inline-block;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .tape .tape__window .tape__message .message__date {
@@ -47,14 +75,5 @@ html {
 
 .tape .tape__window .tape__message .message__coords {
   font-size: small;
-}
-
-.tape .form__input {
-  border: none;
-  resize: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 1px solid black;
-  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

@@ -12,7 +12,40 @@ html {
 }
 
 $border: 1px solid black;
-$padding: 5px;
+$padding: 10px;
+
+%border-type {
+   border: $border;
+   border-radius: 5px;
+}
+
+%input-type {
+   border: none;
+   resize: none;
+   box-sizing: border-box;
+   border: $border;
+   width: 100%;
+}
+
+.popup {
+   @extend %border-type;
+   position: absolute;
+   width: 300px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: $padding;
+   font-size: large;
+   background-color: white;
+
+   p {
+      margin-bottom: 20px;
+   }
+
+   .form__input {
+      @extend %input-type;
+   }
+}
 
 .tape {
    padding: $padding;
@@ -24,10 +57,9 @@ $padding: 5px;
       margin-bottom: 10px;
 
       .tape__message {
+         @extend %border-type;
          display: grid;
-         border: $border;
          background-color: white;
-         border-radius: 5px;
          padding: $padding;
          grid-template-columns: 2fr 1fr;
          margin-top: 10px;
@@ -35,7 +67,7 @@ $padding: 5px;
          .message__text {
             overflow-wrap: anywhere;
             display: inline-block;
-            padding-top: 5px;
+            padding-top: $padding;
          }
 
          .message__date {
@@ -50,11 +82,7 @@ $padding: 5px;
    }
 
    .form__input {
-      border: none;
-      resize: none;
-      box-sizing: border-box;
-      border: $border;
-      width: 100%;
+      @extend %input-type;
    }
 }
 

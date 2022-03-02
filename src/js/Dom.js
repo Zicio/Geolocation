@@ -63,44 +63,43 @@ export default class Dom {
   static showPopup() {
     const tape = document.querySelector('.tape');
 
-    const popup = document.createElement('div');
-    popup.classList.add('popup');
+    const popup = Dom.setEl('div', 'popup');
     tape.before(popup);
 
-    const popupText = document.createElement('div');
-    popupText.classList.add('popup__text');
+    const popupText = Dom.setEl('div', 'popup__text');
     popup.append(popupText);
 
     const text = '<p>Что-то пошло не так</p><p>К сожалению, нам не удалось определить ваше местоположение, пожалуйста, дайте разрешение на использование геолокации, либо введите координаты вручную.</p><p>Широта и долгота через запятую</p>';
     popupText.insertAdjacentHTML('beforeend', text);
 
-    const form = document.createElement('form');
-    form.classList.add('popup__form');
+    const form = Dom.setEl('form', 'popup__form');
     form.setAttribute('action', '');
     form.setAttribute('method', 'post');
     form.setAttribute('id', 'popup-form');
     popup.append(form);
 
-    const textarea = document.createElement('textarea');
-    textarea.classList.add('form__input');
+    const textarea = Dom.setEl('textarea', 'form__input');
     form.append(textarea);
 
-    const buttonPanel = document.createElement('div');
-    buttonPanel.classList.add('popup__button-panel');
+    const buttonPanel = Dom.setEl('div', 'popup__button-panel');
     popup.append(buttonPanel);
 
-    const buttonReset = document.createElement('button');
-    buttonReset.classList.add('button-panel__button', 'reset');
+    const buttonReset = Dom.setEl('button', 'button-panel__button', 'reset');
     buttonReset.setAttribute('form', 'popup-form');
     buttonReset.setAttribute('type', 'button');
     buttonReset.textContent = 'Отмена';
     buttonPanel.append(buttonReset);
 
-    const buttonSubmit = document.createElement('button');
-    buttonSubmit.classList.add('button-panel__button', 'submit');
+    const buttonSubmit = Dom.setEl('button', 'button-panel__button', 'submit');
     buttonSubmit.setAttribute('form', 'popup-form');
     buttonSubmit.setAttribute('type', 'button');
     buttonSubmit.textContent = 'Ок';
     buttonPanel.append(buttonSubmit);
+  }
+
+  static setEl(type, ...selector) {
+    const el = document.createElement(type);
+    el.classList.add(...selector);
+    return el;
   }
 }
