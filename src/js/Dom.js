@@ -32,6 +32,9 @@ export default class Dom {
     message.append(messageCoords);
 
     field.value = '';
+    // const main = document.querySelector('.tape');
+    // const margin = +getComputedStyle(main).marginTop.replace(/[^0-9]/g, '');
+    // main.style.marginTop = `${margin - message.offsetHeight / 2}px`;
   }
 
   static getDate() {

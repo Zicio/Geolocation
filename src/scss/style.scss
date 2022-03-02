@@ -11,8 +11,12 @@ html {
    font-family: sans-serif;
 }
 
+button {
+   all: unset;
+}
+
 $border: 1px solid black;
-$padding: 10px;
+$indent: 15px;
 
 %border-type {
    border: $border;
@@ -27,47 +31,77 @@ $padding: 10px;
    width: 100%;
 }
 
+body {
+   padding-top: 300px;
+}
+
 .popup {
    @extend %border-type;
    position: absolute;
+   z-index: 1;
    width: 300px;
-   top: 50%;
    left: 50%;
+   top: 50%;
    transform: translate(-50%, -50%);
-   padding: $padding;
+   padding: $indent;
    font-size: large;
    background-color: white;
 
    p {
-      margin-bottom: 20px;
+      margin-bottom: $indent;
    }
 
    .form__input {
       @extend %input-type;
    }
+
+   .popup__button-panel {
+      display: flex;
+      justify-content: end;
+      margin-top: $indent;
+
+      .submit {
+         margin-left: $indent;
+      }
+
+      .button-panel__button {
+         @extend %border-type;
+         padding: $indent;
+         background-color: #0062cb;
+         color: white;
+   
+         &:hover {
+            box-shadow: 0 0 5px 2px blue;
+         }
+      }
+   }
 }
 
 .tape {
-   padding: $padding;
+   padding: $indent;
    max-width: 500px;
    min-width: 400px;
+   position: absolute;
+   left: 50%;
+   bottom: 0;
+   transform: translateX(-50%);
 
    .tape__window {
       padding-left: 50px;
-      margin-bottom: 10px;
+      margin-bottom: $indent;
 
       .tape__message {
          @extend %border-type;
          display: grid;
          background-color: white;
-         padding: $padding;
+         padding: $indent;
          grid-template-columns: 2fr 1fr;
-         margin-top: 10px;
+         margin-top: $indent;
 
          .message__text {
             overflow-wrap: anywhere;
             display: inline-block;
-            padding-top: $padding;
+            padding-top: $indent;
          }
 
          .message__date {
