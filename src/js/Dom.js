@@ -8,33 +8,26 @@ export default class Dom {
     const messageValue = field.value;
     const window = document.querySelector('.tape__window');
 
-    const message = document.createElement('div');
-    message.classList.add('tape__message');
+    const message = Dom.setEl('div', 'tape__message');
     window.prepend(message);
 
-    const messageText = document.createElement('span');
-    messageText.classList.add('message__text');
+    const messageText = Dom.setEl('span', 'message__text');
     messageText.textContent = messageValue;
     message.append(messageText);
 
-    const messageDate = document.createElement('span');
-    messageDate.classList.add('message__date');
+    field.value = '';
+
+    const messageDate = Dom.setEl('span', 'message__date');
     messageDate.textContent = `${Dom.getDate().day}.${Dom.getDate().month}.${Dom.getDate().year} ${Dom.getDate().hour}:${Dom.getDate().minute}`;
     message.append(messageDate);
 
-    const messageCoords = document.createElement('span');
-    messageCoords.classList.add('message__coords');
+    const messageCoords = Dom.setEl('span', 'message__coords');
     if (!latitude || !longitude) {
       Dom.showPopup();
       return; //! Временно
     }
     messageCoords.textContent = `[${latitude}, ${longitude}]`;
     message.append(messageCoords);
-
-    field.value = '';
-    // const main = document.querySelector('.tape');
-    // const margin = +getComputedStyle(main).marginTop.replace(/[^0-9]/g, '');
-    // main.style.marginTop = `${margin - message.offsetHeight / 2}px`;
   }
 
   static getDate() {

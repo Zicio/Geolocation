@@ -8,7 +8,7 @@ export default class App {
   }
 
   messageListener() {
-    this.element.addEventListener('keyup', (e) => this.constructor.keyHandler(e));
+    this.element.addEventListener('keydown', (e) => this.constructor.keyHandler(e));
   }
 
   static keyHandler(e) {
