@@ -15,18 +15,18 @@ button {
   all: unset;
 }
 
-.popup, .popup .popup__button-panel .button-panel__button, .tape .tape__window .tape__message {
+.popup, .popup .popup__form .form__hint, .popup .popup__button-panel .button-panel__button, .tape .tape__window .tape__message {
   border: 1px solid black;
   border-radius: 5px;
 }
 
-.popup .form__input, .tape .form__input {
+.popup .popup__form .form__input, .tape .form__input {
   border: none;
-  resize: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid black;
   width: 100%;
+  padding: 5px;
 }
 
 body {
@@ -50,6 +50,24 @@ body {
   margin-bottom: 15px;
 }
 
+.popup .popup__form {
+  position: relative;
+}
+
+.popup .popup__form .form__input {
+  height: 30px;
+}
+
+.popup .popup__form .form__hint {
+  position: absolute;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .popup .popup__button-panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,7 +83,7 @@ body {
 }
 
 .popup .popup__button-panel .button-panel__button {
-  padding: 15px;
+  padding: 10px 15px;
   background-color: #0062cb;
   color: white;
 }
@@ -114,5 +132,9 @@ body {
 
 .tape .tape__window .tape__message .message__coords {
   font-size: small;
+}
+
+.tape .form__input {
+  resize: none;
 }
 /*# sourceMappingURL=style.css.map */

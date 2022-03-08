@@ -25,10 +25,10 @@ $indent: 15px;
 
 %input-type {
    border: none;
-   resize: none;
    box-sizing: border-box;
    border: $border;
    width: 100%;
+   padding: 5px;
 }
 
 body {
@@ -51,8 +51,22 @@ body {
       margin-bottom: $indent;
    }
 
-   .form__input {
-      @extend %input-type;
+   .popup__form {
+      position: relative;
+
+      .form__input {
+         @extend %input-type;
+         height: 30px;
+      }
+
+      .form__hint {
+         position: absolute;
+         @extend %border-type;
+         padding: 5px;
+         background-color: red;
+         color: white;
+         width: fit-content;
+      }
    }
 
    .popup__button-panel {
@@ -66,7 +80,7 @@ body {
 
       .button-panel__button {
          @extend %border-type;
-         padding: $indent;
+         padding: 10px $indent;
          background-color: #0062cb;
          color: white;
    
@@ -117,6 +131,7 @@ body {
 
    .form__input {
       @extend %input-type;
+      resize: none;
    }
 }
 

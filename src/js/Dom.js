@@ -1,10 +1,10 @@
 export default class Dom {
-  constructor(element) {
-    this.element = element;
-  }
-
   static showMessage(latitude, longitude) {
-    const field = document.querySelector('.form__input');
+    if (!latitude || !longitude) {
+      Dom.showPopup();
+      return;
+    }
+    const field = document.getElementById('1');
     const messageValue = field.value;
     const window = document.querySelector('.tape__window');
 
@@ -22,10 +22,6 @@ export default class Dom {
     message.append(messageDate);
 
     const messageCoords = Dom.setEl('span', 'message__coords');
-    if (!latitude || !longitude) {
-      Dom.showPopup();
-      return; //! Временно
-    }
     messageCoords.textContent = `[${latitude}, ${longitude}]`;
     message.append(messageCoords);
   }
@@ -74,8 +70,8 @@ export default class Dom {
     form.setAttribute('id', 'popup-form');
     popup.append(form);
 
-    const textarea = Dom.setEl('textarea', 'form__input');
-    form.append(textarea);
+    const input = Dom.setEl('input', 'form__input');
+    form.append(input);
 
     const buttonPanel = Dom.setEl('div', 'popup__button-panel');
     popup.append(buttonPanel);
@@ -93,9 +89,26 @@ export default class Dom {
     buttonPanel.append(buttonSubmit);
   }
 
+  static hidePopup() {
+    document.querySelector('.popup').remove();
+  }
+
   static setEl(type, ...selector) {
     const el = document.createElement(type);
     el.classList.add(...selector);
     return el;
+  }
+
+  static showHint(e) {
+    const popup = e.target.closest('.popup');
+    const input = popup.querySelector('.form__input');
+    const form = input.closest('.popup__form');
+    input.style.borderColor = 'red';
+    const hint = Dom.setEl('div', 'form__hint');
+    hint.textContent = 'Некорректное значение!';
+    form.append(hint);
+    hint.style.top = `${input.offsetTop + input.offsetHeight / 2
+- hint.offsetHeight / 2}px`;
+    hint.style.left = `${input.offsetLeft + input.offsetWidth + 5}px`;
   }
 }
